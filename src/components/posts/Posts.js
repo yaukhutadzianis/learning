@@ -27,13 +27,18 @@ export default function Posts() {
           <div className="bg-warning mb-2 px-3 py-2 rounded d-flex align-items-center justify-content-between">
             <div>Post 2</div>
             <div>
-              <button className="btn btn-danger px-2 py-0">Delete</button>
+              <button
+                className="btn btn-danger px-2 py-0"
+                onClick={() => dispatch(deletePostReducer())}
+              >
+                Delete
+              </button>
             </div>
           </div>
           {posts.map((posts) => {
             return (
               <div
-                key={posts.key}
+                key={Date.now() + Math.random()}
                 className="bg-warning mb-2 px-3 py-2 rounded d-flex align-items-center justify-content-between"
               >
                 <div>{posts.title}</div>

@@ -15,11 +15,16 @@ export const postsSlice = createSlice({
         id: Date.now() + Math.random(),
         title: state.addPostInputValue
       };
-      state.posts.push(post);
+      const posts = state.posts;
+      posts.push(post);
+      state.posts = posts;
 
       state.addPostInputValue = "";
+      console.log(state.posts);
     },
-    deletePostReducer: (state) => {}
+    deletePostReducer: (state) => {
+      console.log(2);
+    }
   }
 });
 
