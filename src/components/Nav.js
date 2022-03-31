@@ -9,8 +9,8 @@ export default class Nav extends React.Component {
         aria-label="Sixth navbar example"
       >
         <div className="container">
-          <Link className="navbar-brand" to="/">
-            Shop
+          <Link className="navbar-brand rounded border px-3" to="/">
+            Yaukhuta Dzianis Apps
           </Link>
 
           <button
@@ -27,6 +27,11 @@ export default class Nav extends React.Component {
 
           <div className="collapse navbar-collapse" id="navbarsExample06">
             <ul className="navbar-nav me-auto mb-2 mb-xl-0">
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/posts">
+                  Posts
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link className="nav-link" aria-current="page" to="/counter">
                   Counter
