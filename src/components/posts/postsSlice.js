@@ -4,7 +4,16 @@ export const postsSlice = createSlice({
   name: "posts",
   initialState: {
     addPostInputValue: "",
-    posts: []
+    posts: [
+      {
+        id: 1,
+        title: "Post 1"
+      },
+      {
+        id: 2,
+        title: "Post 2"
+      }
+    ]
   },
   reducers: {
     getInputValueReducer: (state, action) => {
@@ -20,10 +29,11 @@ export const postsSlice = createSlice({
       state.posts = posts;
 
       state.addPostInputValue = "";
-      console.log(state.posts);
     },
-    deletePostReducer: (state) => {
-      console.log(2);
+    deletePostReducer: (state, action) => {
+      state.posts = state.posts.filter(function (item) {
+        return item.id != action.payload;
+      });
     }
   }
 });

@@ -19,10 +19,15 @@ export const counterSlice = createSlice({
       if (state.value > 0) {
         state.value -= 1;
       }
+    },
+    setValue: (state, action) => {
+      if (!isNaN(action.payload)) {
+        state.value = action.payload;
+      }
     }
   }
 });
 
-export const { increment, decrement } = counterSlice.actions;
+export const { increment, decrement, setValue } = counterSlice.actions;
 
 export default counterSlice.reducer;

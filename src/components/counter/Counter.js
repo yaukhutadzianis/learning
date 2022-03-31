@@ -1,5 +1,5 @@
 import React from "react";
-import { increment, decrement } from "./counterSlice";
+import { increment, decrement, setValue } from "./counterSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Counter() {
@@ -13,7 +13,7 @@ export default function Counter() {
           className="form-control mb-4"
           type="text"
           value={count}
-          readOnly
+          onChange={(e) => dispatch(setValue(e.target.value))}
         />
         <div>
           <button
