@@ -12,6 +12,7 @@ export default class Nav extends React.Component {
           <Link class="navbar-brand" to="/">
             Shop
           </Link>
+
           <button
             class="navbar-toggler"
             type="button"
@@ -27,13 +28,8 @@ export default class Nav extends React.Component {
           <div class="collapse navbar-collapse" id="navbarsExample06">
             <ul class="navbar-nav me-auto mb-2 mb-xl-0">
               <li class="nav-item">
-                <Link class="nav-link" aria-current="page" to="/1">
-                  1
-                </Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link" aria-current="page" to="/2">
-                  2
+                <Link class="nav-link" aria-current="page" to="/counter">
+                  Counter
                 </Link>
               </li>
             </ul>
