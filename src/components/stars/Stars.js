@@ -7,7 +7,7 @@ export default function Stars({ style = {}, totalStars = 5 }) {
   const [selectedStars, setSelectedStars] = useState(3);
   return (
     <div
-      className="container-fluid py-5 bg-light"
+      className="container-fluid py-5 bg-warning"
       style={{ padding: "5px", ...style }}
     >
       <div className="container py-3">

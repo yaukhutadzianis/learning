@@ -7,6 +7,7 @@ import Stars from "./components/stars/Stars";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./styles.scss";
+import UseEffectHook from "./components/hooks/useEffect/UseEffectHook";
 
 export default class App extends React.Component {
   render() {
@@ -21,6 +22,7 @@ export default class App extends React.Component {
               path="/stars"
               element={<Stars totalStars={10} style={{ color: "#444" }} />}
             />
+            <Route path="/hooks/useEffect" element={<UseEffectHook />} />
           </Routes>
         </div>
       </Router>

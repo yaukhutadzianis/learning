@@ -42,6 +42,24 @@ export default class Nav extends React.Component {
                   Stars
                 </Link>
               </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="/"
+                  id="dropdownXxl"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Hooks
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="dropdownXxl">
+                  <li>
+                    <Link className="dropdown-item" to="/hooks/useEffect">
+                      useEffect
+                    </Link>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
