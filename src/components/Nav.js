@@ -37,6 +37,11 @@ export default class Nav extends React.Component {
                   Counter
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to="/stars">
+                  Stars
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

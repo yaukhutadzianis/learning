@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "./components/Nav";
 import Counter from "./components/counter/Counter";
 import Posts from "./components/posts/Posts";
+import Stars from "./components/stars/Stars";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -16,6 +17,10 @@ export default class App extends React.Component {
           <Routes>
             <Route path="/posts" element={<Posts />} />
             <Route path="/counter" element={<Counter />} />
+            <Route
+              path="/stars"
+              element={<Stars totalStars={10} style={{ color: "#444" }} />}
+            />
           </Routes>
         </div>
       </Router>
