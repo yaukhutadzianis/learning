@@ -19,16 +19,17 @@ export default function UseEffectHook() {
 
   useEffect(() => {
     datetime.current.innerHTML = getCurrentDate();
-  });
+    return {};
+  }, [count]);
 
   return (
     <div className="container-fluid py-5 bg-secondary">
       <div className="container py-3">
-        <p className="fw-bold text-warning" ref={datetime}></p>
-        <p className="">
-          Time will update on every component update and first rendering
+        <p className="mb-0 d-inline me-2">
+          Current time - at component rerender or mounted:
         </p>
-        <div className="d-flex">
+        <p className="fw-bold text-warning d-inline" ref={datetime}></p>
+        <div className="d-flex mt-3">
           <button
             className="btn btn-warning me-2"
             onClick={() => setCount(count + 1)}
