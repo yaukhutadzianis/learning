@@ -12,7 +12,6 @@ export default function Posts() {
   );
   const posts = useSelector((state) => state.posts.posts);
   const dispatch = useDispatch();
-  console.log(posts);
 
   return (
     <div className="container-fluid py-5 bg-secondary">
