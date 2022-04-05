@@ -1,6 +1,5 @@
 import React from "react";
 import Parent from "./Parent";
-import FruitsContext from "./ThemeContext";
 
 export default function UseContextHook() {
   const fruits = {
@@ -14,3 +13,5 @@ export default function UseContextHook() {
     </FruitsContext.Provider>
   );
 }
+
+export const FruitsContext = React.createContext();

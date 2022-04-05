@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles.scss";
 import UseEffectHook from "./components/hooks/useEffect/UseEffectHook";
 import UseContextHook from "./components/hooks/useContext/UseContextHook";
+import UseReducerHook from "./components/hooks/useReducer/UseReducerHook";
 
 export default class App extends React.Component {
   render() {
@@ -25,6 +26,7 @@ export default class App extends React.Component {
             />
             <Route path="/hooks/useEffect" element={<UseEffectHook />} />
             <Route path="/hooks/useContext" element={<UseContextHook />} />
+            <Route path="/hooks/useReducer" element={<UseReducerHook />} />
           </Routes>
         </div>
       </Router>

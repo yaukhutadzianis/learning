@@ -63,6 +63,11 @@ export default class Nav extends React.Component {
                       useContext
                     </Link>
                   </li>
+                  <li>
+                    <Link className="dropdown-item" to="/hooks/useReducer">
+                      useReducer
+                    </Link>
+                  </li>
                 </ul>
               </li>
             </ul>
