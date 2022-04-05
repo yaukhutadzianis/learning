@@ -9,6 +9,8 @@ export default function UseReducerHook() {
         return { count: state.count + 1 };
       case "decrementAction":
         return { count: state.count - 1 };
+      case "resetAction":
+        return { count: initialState.count };
 
       default:
         break;
@@ -35,6 +37,12 @@ export default function UseReducerHook() {
           onClick={() => dispatch("decrementAction")}
         >
           Decrement
+        </button>
+        <button
+          className="btn btn-warning me-3"
+          onClick={() => dispatch("resetAction")}
+        >
+          Reset
         </button>
       </div>
     </div>
