@@ -73,6 +73,11 @@ export default class Nav extends React.Component {
                       useCallback
                     </Link>
                   </li>
+                  <li>
+                    <Link className="dropdown-item" to="/hooks/useMemo">
+                      useMemo
+                    </Link>
+                  </li>
                 </ul>
               </li>
             </ul>
