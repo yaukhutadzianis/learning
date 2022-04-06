@@ -24,6 +24,26 @@ export default function Todo() {
   });
   const dispatch = useDispatch();
 
+  function fCheckOnVisibleTodoItem(todo) {
+    let visible = "d-block";
+
+    if (fCompletedVal === "0" && todo.isChecked === true) {
+      console.log(0);
+      visible = "d-block";
+    } else if (fCompletedVal === "1" && todo.isChecked === true) {
+      console.log(1);
+      visible = "d-block";
+    } else if (fCompletedVal === "1" && todo.isChecked === false) {
+      console.log(1);
+      visible = "d-none";
+    } else if (fCompletedVal === "2" && todo.isChecked === true) {
+      console.log(2);
+      visible = "d-none";
+    }
+
+    return visible;
+  }
+
   return (
     <div className="container-fluid py-5 bg-secondary">
       <div className="container py-3">
@@ -47,18 +67,9 @@ export default function Todo() {
             return (
               <div
                 key={Date.now() + Math.random()}
-                className={`bg-warning rounded px-3 py-2 my-2 d-flex align-items-center 
-                  ${
-                    fCompletedVal === "1" && todo.isChecked === false
-                      ? "d-none"
-                      : "d-block"
-                  }
-                  ${
-                    fCompletedVal === "2" && todo.isChecked === true
-                      ? "d-none"
-                      : "d-block"
-                  }
-                `}
+                className={`bg-warning rounded px-3 py-2 my-2 d-flex align-items-center ${fCheckOnVisibleTodoItem(
+                  todo
+                )} `}
               >
                 <div className="form-check form-switch me-2">
                   <input
