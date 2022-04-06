@@ -78,6 +78,11 @@ export default class Nav extends React.Component {
                       useMemo
                     </Link>
                   </li>
+                  <li>
+                    <Link className="dropdown-item" to="/hooks/useRef">
+                      useRef
+                    </Link>
+                  </li>
                 </ul>
               </li>
             </ul>

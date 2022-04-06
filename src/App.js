@@ -12,6 +12,7 @@ import UseContextHook from "./components/hooks/useContext/UseContextHook";
 import UseReducerHook from "./components/hooks/useReducer/UseReducerHook";
 import UseCallbackHook from "./components/hooks/useCallback/UseCallbackHook";
 import UseMemoHook from "./components/hooks/useMemo/UseMemoHook";
+import UseRefHook from "./components/hooks/useRef/UseRefHook";
 
 export default class App extends React.Component {
   render() {
@@ -31,6 +32,7 @@ export default class App extends React.Component {
             <Route path="/hooks/useReducer" element={<UseReducerHook />} />
             <Route path="/hooks/useCallback" element={<UseCallbackHook />} />
             <Route path="/hooks/useMemo" element={<UseMemoHook />} />
+            <Route path="/hooks/useRef" element={<UseRefHook />} />
           </Routes>
         </div>
       </Router>
