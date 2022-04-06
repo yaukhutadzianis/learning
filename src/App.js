@@ -1,12 +1,10 @@
 import React from "react";
-import Nav from "./components/Nav";
-import Counter from "./components/counter/Counter";
-import Posts from "./components/posts/Posts";
-import Stars from "./components/stars/Stars";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import "./styles.scss";
+import Nav from "./components/Nav";
+import Posts from "./components/reactRedux/posts/Posts";
+import Todo from "./components/reactRedux/todo/Todo";
+import Stars from "./components/stars/Stars";
+import Counter from "./components/reactRedux/counter/Counter";
 import UseEffectHook from "./components/hooks/useEffect/UseEffectHook";
 import UseContextHook from "./components/hooks/useContext/UseContextHook";
 import UseReducerHook from "./components/hooks/useReducer/UseReducerHook";
@@ -21,8 +19,9 @@ export default class App extends React.Component {
         <div className="App">
           <Nav />
           <Routes>
-            <Route path="/posts" element={<Posts />} />
-            <Route path="/counter" element={<Counter />} />
+            <Route path="/reactRedux/todo" element={<Todo />} />
+            <Route path="/reactRedux/posts" element={<Posts />} />
+            <Route path="/reactRedux/counter" element={<Counter />} />
             <Route
               path="/stars"
               element={<Stars totalStars={10} style={{ color: "#444" }} />}

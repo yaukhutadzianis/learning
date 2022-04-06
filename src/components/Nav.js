@@ -27,15 +27,33 @@ export default class Nav extends React.Component {
 
           <div className="collapse navbar-collapse" id="navbarsExample06">
             <ul className="navbar-nav me-auto mb-2 mb-xl-0">
-              <li className="nav-item">
-                <Link className="nav-link" aria-current="page" to="/posts">
-                  Posts
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" aria-current="page" to="/counter">
-                  Counter
-                </Link>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="/"
+                  id="dropdownXxl"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  React & Redux
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="dropdownXxl">
+                  <li>
+                    <Link className="dropdown-item" to="/reactRedux/todo">
+                      To-Do List
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/reactRedux/posts">
+                      Posts
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/reactRedux/counter">
+                      Counter
+                    </Link>
+                  </li>
+                </ul>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" aria-current="page" to="/stars">
