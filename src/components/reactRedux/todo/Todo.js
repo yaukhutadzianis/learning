@@ -1,28 +1,28 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   onChangeAddInput,
   onClickAddButton,
   deleteTodo,
-  fCheckAll,
   checkTodo,
+  fCheckAll,
   fUnCheckAll,
+  fSetCompleted,
+  fSetPriority,
   setPriority
 } from "./todoSlice";
 import { RiDeleteBin2Fill } from "react-icons/ri";
 
 export default function Todo() {
-  const [addInput, priorityVal] = useSelector((state) => [
+  const [addInput, fCompletedVal, fPriorityVal] = useSelector((state) => [
     state.todo.addInput,
-    state.todo.priorityVal
+    state.todo.fCompletedVal,
+    state.todo.fPriorityVal
   ]);
   const todos = useSelector((state) => {
     return state.todo.todos;
   });
   const dispatch = useDispatch();
-  useEffect(() => {
-    console.log(1);
-  }, [priorityVal]);
 
   return (
     <div className="container-fluid py-5 bg-secondary">
@@ -47,7 +47,18 @@ export default function Todo() {
             return (
               <div
                 key={Date.now() + Math.random()}
-                className="bg-warning rounded px-3 py-2 my-2 d-flex align-items-center"
+                className={`bg-warning rounded px-3 py-2 my-2 d-flex align-items-center 
+                  ${
+                    fCompletedVal === "1" && todo.isChecked === false
+                      ? "d-none"
+                      : "d-block"
+                  }
+                  ${
+                    fCompletedVal === "2" && todo.isChecked === true
+                      ? "d-none"
+                      : "d-block"
+                  }
+                `}
               >
                 <div className="form-check form-switch me-2">
                   <input
@@ -69,9 +80,9 @@ export default function Todo() {
                     }
                     className="form-select ms-2"
                   >
-                    <option value="aa">Low Priority</option>
-                    <option value="bb">Mid Priority</option>
-                    <option value="cc">High Priority</option>
+                    <option value="0">Low Priority</option>
+                    <option value="1">Mid Priority</option>
+                    <option value="2">High Priority</option>
                   </select>
                   <button
                     className="btn btn-danger p-0 px-1 fs-3 ms-2"
@@ -85,7 +96,6 @@ export default function Todo() {
           })}
         </div>
         <div className="mt-3">
-          <p>Filter To-dos:</p>
           <button
             className="btn btn-warning me-2 mb-2"
             onClick={() => dispatch(fCheckAll())}
@@ -98,6 +108,80 @@ export default function Todo() {
           >
             Uncheck All
           </button>
+          <p className="mt-4">Filter To-dos:</p>
+
+          <div className="d-flex">
+            <div className="border rounded mb-2 me-2">
+              <input
+                type="radio"
+                className="btn-check"
+                name="options"
+                id="option0"
+                autoComplete="off"
+                value="0"
+                checked={fCompletedVal === "0"}
+                onChange={(e) => dispatch(fSetCompleted(e.target.value))}
+              />
+              <label className="btn btn-secondary" htmlFor="option0">
+                All
+              </label>
+              <input
+                type="radio"
+                className="btn-check"
+                name="options"
+                id="option1"
+                autoComplete="off"
+                value="1"
+                checked={fCompletedVal === "1"}
+                onChange={(e) => dispatch(fSetCompleted(e.target.value))}
+              />
+              <label className="btn btn-secondary" htmlFor="option1">
+                Completed
+              </label>
+
+              <input
+                type="radio"
+                className="btn-check"
+                name="options"
+                id="option2"
+                autoComplete="off"
+                value="2"
+                checked={fCompletedVal === "2"}
+                onChange={(e) => dispatch(fSetCompleted(e.target.value))}
+              />
+              <label className="btn btn-secondary" htmlFor="option2">
+                Uncompleted
+              </label>
+            </div>
+            <div className="border rounded mb-2 me-2">
+              <input
+                type="radio"
+                className="btn-check"
+                name="priority"
+                id="priority0"
+                autoComplete="off"
+                value="0"
+                checked={fPriorityVal === "0"}
+                onChange={(e) => dispatch(fSetPriority(e.target.value))}
+              />
+              <label className="btn btn-secondary" htmlFor="priority0">
+                All
+              </label>
+              <input
+                type="radio"
+                className="btn-check"
+                name="priority"
+                id="priority1"
+                autoComplete="off"
+                value="1"
+                checked={fPriorityVal === "1"}
+                onChange={(e) => dispatch(fSetPriority(e.target.value))}
+              />
+              <label className="btn btn-secondary" htmlFor="priority1">
+                Low Priority
+              </label>
+            </div>
+          </div>
         </div>
         <hr />
       </div>
