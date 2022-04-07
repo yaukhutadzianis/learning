@@ -11,6 +11,7 @@ import UseReducerHook from "./components/hooks/useReducer/UseReducerHook";
 import UseCallbackHook from "./components/hooks/useCallback/UseCallbackHook";
 import UseMemoHook from "./components/hooks/useMemo/UseMemoHook";
 import UseRefHook from "./components/hooks/useRef/UseRefHook";
+import Greetings from "./components/Greetings";
 
 export default class App extends React.Component {
   render() {
@@ -19,6 +20,7 @@ export default class App extends React.Component {
         <div className="App">
           <Nav />
           <Routes>
+            <Route path="/" element={<Greetings />} />
             <Route path="/reactRedux/todo" element={<Todo />} />
             <Route path="/reactRedux/posts" element={<Posts />} />
             <Route path="/reactRedux/counter" element={<Counter />} />
