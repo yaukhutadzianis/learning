@@ -12,6 +12,7 @@ import {
   setPriority
 } from "./todoSlice";
 import { RiDeleteBin2Fill } from "react-icons/ri";
+import fCheckOnVisibleTodoItem from "./filtersController";
 
 export default function Todo() {
   const [addInput, fCompletedVal, fPriorityVal] = useSelector((state) => [
@@ -23,26 +24,6 @@ export default function Todo() {
     return state.todo.todos;
   });
   const dispatch = useDispatch();
-
-  function fCheckOnVisibleTodoItem(todo) {
-    let visible = "d-block";
-
-    if (fCompletedVal === "0" && todo.isChecked === true) {
-      console.log(0);
-      visible = "d-block";
-    } else if (fCompletedVal === "1" && todo.isChecked === true) {
-      console.log(1);
-      visible = "d-block";
-    } else if (fCompletedVal === "1" && todo.isChecked === false) {
-      console.log(1);
-      visible = "d-none";
-    } else if (fCompletedVal === "2" && todo.isChecked === true) {
-      console.log(2);
-      visible = "d-none";
-    }
-
-    return visible;
-  }
 
   return (
     <div className="container-fluid py-5 bg-secondary">
@@ -68,7 +49,9 @@ export default function Todo() {
               <div
                 key={Date.now() + Math.random()}
                 className={`bg-warning rounded px-3 py-2 my-2 d-flex align-items-center ${fCheckOnVisibleTodoItem(
-                  todo
+                  todo,
+                  fCompletedVal,
+                  fPriorityVal
                 )} `}
               >
                 <div className="form-check form-switch me-2">
@@ -190,6 +173,32 @@ export default function Todo() {
               />
               <label className="btn btn-secondary" htmlFor="priority1">
                 Low Priority
+              </label>
+              <input
+                type="radio"
+                className="btn-check"
+                name="priority"
+                id="priority2"
+                autoComplete="off"
+                value="2"
+                checked={fPriorityVal === "2"}
+                onChange={(e) => dispatch(fSetPriority(e.target.value))}
+              />
+              <label className="btn btn-secondary" htmlFor="priority2">
+                Mid Priority
+              </label>
+              <input
+                type="radio"
+                className="btn-check"
+                name="priority"
+                id="priority3"
+                autoComplete="off"
+                value="3"
+                checked={fPriorityVal === "3"}
+                onChange={(e) => dispatch(fSetPriority(e.target.value))}
+              />
+              <label className="btn btn-secondary" htmlFor="priority3">
+                High Priority
               </label>
             </div>
           </div>
